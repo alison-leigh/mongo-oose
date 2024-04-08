@@ -1,39 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>MongoDB & Mongoose</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="link.js"></script>
-</head>
+  </head>
 
+  <body>
+    <header>
+      <img class="headerIcon" src="img/mongodb.svg" /><img
+        class="headerIcon"
+        src="img/mongoose.png"
+      />
+      <h1>MongoDB & Mongoose</h1>
+    </header>
 
-<body>
-<header>
-    <img class="headerIcon" src="img/mongodb.svg"><img class="headerIcon" src="img/mongoose.png"> <h1>MongoDB & Mongoose</h1>
-</header>
-
-<!-- table of contents, only visible on mobile -->
-<nav id="tableOfContents">
-    <details><summary>Table of Contents</summary>
+    <!-- table of contents, only visible on mobile -->
+    <nav id="tableOfContents">
+      <details>
+        <summary>Table of Contents</summary>
         <ul>
-            <h3>MongoDB</h3>
-            <li><a href="#about-mongoDB">About MongoDB</a></li>
-            <li><a href="#integrating-mongoDB">Integrating MongoDB</a></li>
-            <li><a href="#atlas-setup">Setting up MongoDB Atlas</a></li>
-            <h3>Mongoose</h3>
-            <li><a href="#about-mongoose">About Mongoose</a></li>
-            <li><a href="#integrating-mongoose">Integrating Mongoose</a></li>
-            <li><a href="#common-functionality">Common Functionality</a></li>
+          <h3>MongoDB</h3>
+          <li><a href="#about-mongoDB">About MongoDB</a></li>
+          <li><a href="#integrating-mongoDB">Integrating MongoDB</a></li>
+          <li><a href="#atlas-setup">Setting up MongoDB Atlas</a></li>
+          <h3>Mongoose</h3>
+          <li><a href="#about-mongoose">About Mongoose</a></li>
+          <li><a href="#integrating-mongoose">Integrating Mongoose</a></li>
+          <li><a href="#common-functionality">Common Functionality</a></li>
         </ul>
-    </details>
+      </details>
+    </nav>
 
-</nav>
-
-<!-- scrolling sidebar navigation
+    <!-- scrolling sidebar navigation
  these use 'anchor tags' or 'jump links' to navigate to element IDs within the page-->
-<nav id="sideNavigation">
-    <ul>
+    <nav id="sideNavigation">
+      <ul>
         <h3>MongoDB</h3>
         <li><a href="#about-mongoDB">About MongoDB</a></li>
         <li><a href="#integrating-mongoDB">Integrating MongoDB</a></li>
@@ -42,229 +45,426 @@
         <li><a href="#about-mongoose">About Mongoose</a></li>
         <li><a href="#integrating-mongoose">Integrating Mongoose</a></li>
         <li><a href="#common-functionality">Common Functionality</a></li>
-    </ul>
-</nav>
+      </ul>
+    </nav>
 
-<!-- main tutorial content -->
+    <!-- main tutorial content -->
 
-<main>
-<!--  Section 1: Setting Up the Environment -->
-<section id="about-mongoDB">
-<h2>About MongoDB</h2>
+    <main>
+      <!--  Section 1: Setting Up the Environment -->
+      <section id="about-mongoDB">
+        <h2>About MongoDB</h2>
 
-<h3>What is MongoDB?</h3>
-<p>
-    MongoDB is a NoSQL database that stores data in flexible, JSON-like documents. It means fields can vary from document to document and data structure can be changed over time.
-</p>
+        <h3>What is MongoDB?</h3>
+        <p>
+          MongoDB is a NoSQL database that stores data in flexible, JSON-like
+          documents. It means fields can vary from document to document and data
+          structure can be changed over time.
+        </p>
 
+        <h3>What is MongoDB's purpose?</h3>
+        <p>
+          The purpose of MongoDB is to provide a scalable, high-performance,
+          open-source, document-oriented database that bridges the gap between
+          key-value stores (which are fast and highly scalable) and traditional
+          RDBMS systems (which provide rich queries and deep functionality).
+        </p>
 
-<h3>What is MongoDB's purpose?</h3>
-<p>
-    The purpose of MongoDB is to provide a scalable, high-performance, open-source, document-oriented database that bridges the gap between key-value stores (which are fast and highly scalable) and traditional RDBMS systems (which provide rich queries and deep functionality).
-</p>
+        <h3>Why is MongoDB important?</h3>
+        <p>
+          MongoDB is important because it offers a scalable and flexible
+          architecture, supports rich queries, robust indexing, and real-time
+          aggregation. It is designed for modern application developers and for
+          the cloud era. No database makes it easier to build applications than
+          MongoDB.
+        </p>
+      </section>
+      <!--  Section 2: Creating and Cloning a GitHub Repository -->
+      <section id="integrating-mongoDB">
+        <h2>Integrating MongoDB into the MERN stack</h2>
 
-    <h3>Why is MongoDB important?</h3>
-    <p>
-        MongoDB is important because it offers a scalable and flexible architecture, supports rich queries, robust indexing, and real-time aggregation. It is designed for modern application developers and for the cloud era. No database makes it easier to build applications than MongoDB.
-    </p>
-</section>
-<!--  Section 2: Creating and Cloning a GitHub Repository -->
-<section id="integrating-mongoDB">
-<h2>Integrating MongoDB into the MERN stack</h2>
+        <h3>Dependencies</h3>
+        <aside class="warning">
+          ⚠️ Ensure the packages listed below are installed on your machine
+          before proceeding.
+        </aside>
+        <ul>
+          <li><a href="https://nodejs.org/en">Node.js</a></li>
+          <li>
+            <a href="https://www.mongodb.com/try/download/community">MongoDB</a>
+            (only required if hosting a local server on your machine)
+          </li>
+          <li>
+            <a href="https://www.mongodb.com/docs/mongodb-shell/">Mongosh</a>
+          </li>
+          <li>
+            <a href="https://www.npmjs.com/package/mongoose">Mongoose</a> (via
+            the command terminal in your project)
+          </li>
+        </ul>
 
-    <h3>Dependencies</h3>
-    <aside class="warning">⚠️  Ensure the packages listed below are installed on your machine before proceeding.</aside>
-    <ul>
-        <li><a href="https://nodejs.org/en">Node.js</a></li>
-        <li><a href="https://www.mongodb.com/try/download/community">MongoDB</a> (only required if hosting a local server on your machine) </li>
-        <li><a href="https://www.mongodb.com/docs/mongodb-shell/">Mongosh</a></li>
-        <li><a href="https://www.npmjs.com/package/mongoose">Mongoose</a> (via the command terminal in your project)</li>
-    </ul>
-
-<h3>Steps to integrate</h3>
-<ul>
-<li><b>Setting up MongoDB:</b><ul>
-        <li><strong>To host your own server,</strong> install the community version of <a href="https://www.mongodb.com/docs/manual/installation/">MongoDB</a> on your machine.</li>
-
-        <li><strong>To use a free cloud-based solution,</strong> create a <a href="https://www.mongodb.com/atlas/database?tck=docs_server">MongoDB Atlas</a> account using their free m0 tier.</li>
-    </ul>
-    </li>
-
-    <li class="idfk"><b>Integrating with Node.js</b>: Use Mongoose, an ODM (Object Document Mapping) tool, to connect your Node.js application to your MongoDB database.
-    </li>
-</ul>
-    <aside class="supportingInfo">💡 If you're new to MongoDB, MongoDB Atlas is an easier alternative to setting up and running your own server.</aside>
-
-    <h3>Configuration considerations</h3>
-    <ul>
-        <li><b>Connection String:</b> Ensure the correct connection string to your MongoDB instance.
-        </li>
-        <li><b>Schema Design:</b> Plan your database schema according to your application's needs.</li>
-        <li><b>Indexing:</b> Implement indexing on frequently queried fields for performance.</li>
-    </ul>
-</section>
-
- <!-- Section 3: Setting up MongoDB Atlas -->
-<section id="atlas-setup">
-      <h2>Setting up MongoDB Atlas</h2>
-
-    <aside class="supportingInfo">💡 For this tutorial, we will be using MongoDB Atlas. If you'd like to set up your own server, instructions can be found <a href="https://www.mongodb.com/docs/manual/installation/#mongodb-community-edition-installation-tutorials">here</a> on the official website.</aside>
-    <h3 id="step-1-setting-up-mongodb-atlas">Step 1: Setting Up MongoDB Atlas</h3>
-    <ol>
-        <li><p><strong>Create a MongoDB Atlas Account:</strong></p>
+        <h3>Steps to integrate</h3>
+        <ul>
+          <li>
+            <b>Setting up MongoDB:</b>
             <ul>
-                <li>Go to the <a href="https://www.mongodb.com/atlas/database">MongoDB Atlas</a> website and sign up for a new account if you don&#39;t already have one. Creating an account is free.</li>
-                <li>After signing up, log in to your MongoDB Atlas dashboard.</li>
+              <li>
+                <strong>To host your own server,</strong> install the community
+                version of
+                <a href="https://www.mongodb.com/docs/manual/installation/"
+                  >MongoDB</a
+                >
+                on your machine.
+              </li>
+
+              <li>
+                <strong>To use a free cloud-based solution,</strong> create a
+                <a href="https://www.mongodb.com/atlas/database?tck=docs_server"
+                  >MongoDB Atlas</a
+                >
+                account using their free m0 tier.
+              </li>
             </ul>
-        </li>
-        <li><p><strong>Create a Cluster:</strong></p>
+          </li>
+
+          <li class="idfk">
+            <b>Integrating with Node.js</b>: Use Mongoose, an ODM (Object
+            Document Mapping) tool, to connect your Node.js application to your
+            MongoDB database.
+          </li>
+        </ul>
+        <aside class="supportingInfo">
+          💡 If you're new to MongoDB, MongoDB Atlas is an easier alternative to
+          setting up and running your own server.
+        </aside>
+
+        <h3>Configuration considerations</h3>
+        <ul>
+          <li>
+            <b>Connection String:</b> Ensure the correct connection string to
+            your MongoDB instance.
+          </li>
+          <li>
+            <b>Schema Design:</b> Plan your database schema according to your
+            application's needs.
+          </li>
+          <li>
+            <b>Indexing:</b> Implement indexing on frequently queried fields for
+            performance.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 3: Setting up MongoDB Atlas -->
+      <section id="atlas-setup">
+        <h2>Setting up MongoDB Atlas</h2>
+
+        <aside class="supportingInfo">
+          💡 For this tutorial, we will be using MongoDB Atlas. If you'd like to
+          set up your own server, instructions can be found
+          <a
+            href="https://www.mongodb.com/docs/manual/installation/#mongodb-community-edition-installation-tutorials"
+            >here</a
+          >
+          on the official website.
+        </aside>
+        <h3 id="step-1-setting-up-mongodb-atlas">
+          Step 1: Setting Up MongoDB Atlas
+        </h3>
+        <ol>
+          <li>
+            <p><strong>Create a MongoDB Atlas Account:</strong></p>
             <ul>
-                <li>Inside your dashboard, click the &quot;Build a Cluster&quot; button. You can start with a free tier cluster (m0) which is sufficient for learning and small projects.</li>
-                <li>Follow the setup instructions, choosing the cloud provider and region that suits you best.</li>
+              <li>
+                Go to the
+                <a href="https://www.mongodb.com/atlas/database"
+                  >MongoDB Atlas</a
+                >
+                website and sign up for a new account if you don&#39;t already
+                have one. Creating an account is free.
+              </li>
+              <li>After signing up, log in to your MongoDB Atlas dashboard.</li>
             </ul>
-        </li>
-        <li><p><strong>Configure Security Settings:</strong></p>
+          </li>
+          <li>
+            <p><strong>Create a Cluster:</strong></p>
             <ul>
-                <li>Set up a database user: Navigate to the &quot;Database Access&quot; menu under the &quot;Security&quot; section. Add a new database user with read and write privileges. Remember the username and password; you will need them later.</li>
-                <li>Configure your IP address: In the &quot;Network Access&quot; menu under the &quot;Security&quot; section, add your IP address or allow access from anywhere (not recommended for production).</li>
+              <li>
+                Inside your dashboard, click the &quot;Build a Cluster&quot;
+                button. You can start with a free tier cluster (m0) which is
+                sufficient for learning and small projects.
+              </li>
+              <li>
+                Follow the setup instructions, choosing the cloud provider and
+                region that suits you best.
+              </li>
             </ul>
-        </li>
-        <li><p><strong>Connect to Your Cluster:</strong></p>
+          </li>
+          <li>
+            <p><strong>Configure Security Settings:</strong></p>
             <ul>
-                <li>Go to your clusters overview, and click on the &quot;Connect&quot; button next to your cluster.</li>
-                <li>Choose &quot;Connect your application.&quot;</li>
-                <li>Copy the connection string provided. You will use this in your VS Code project to connect to your MongoDB Atlas cluster.</li>
+              <li>
+                Set up a database user: Navigate to the &quot;Database
+                Access&quot; menu under the &quot;Security&quot; section. Add a
+                new database user with read and write privileges. Remember the
+                username and password; you will need them later.
+              </li>
+              <li>
+                Configure your IP address: In the &quot;Network Access&quot;
+                menu under the &quot;Security&quot; section, add your IP address
+                or allow access from anywhere (not recommended for production).
+              </li>
             </ul>
-        </li>
-    </ol>
-    <h3 id="step-2-integrating-mongodb-into-your-vs-code-project">Step 2: Integrating MongoDB into Your VS Code Project</h3>
-    <ol>
-        <li><p><strong>Install MongoDB in Your Project:</strong></p>
+          </li>
+          <li>
+            <p><strong>Connect to Your Cluster:</strong></p>
             <ul>
-                <li>Ensure you have Node.js installed on your computer.</li>
-                <li>Initialize a new Node.js project if you haven&#39;t already by running <code>npm init</code> in your project directory.</li>
-                <li>Install the MongoDB Node.js driver by running <code>npm install mongodb</code>.</li>
+              <li>
+                Go to your clusters overview, and click on the
+                &quot;Connect&quot; button next to your cluster.
+              </li>
+              <li>Choose &quot;Connect your application.&quot;</li>
+              <li>
+                Copy the connection string provided. You will use this in your
+                VS Code project to connect to your MongoDB Atlas cluster.
+              </li>
             </ul>
-        </li>
-        <li><p><strong>Using MongoDB in Your Project:</strong></p>
+          </li>
+        </ol>
+        <h3 id="step-2-integrating-mongodb-into-your-vs-code-project">
+          Step 2: Integrating MongoDB into Your VS Code Project
+        </h3>
+        <ol>
+          <li>
+            <p><strong>Install MongoDB in Your Project:</strong></p>
             <ul>
-                <li>In your project, create a new file (e.g., <code>db.js</code>) to handle the connection to your MongoDB Atlas cluster.</li>
-                <li>Use the connection string you copied from MongoDB Atlas to connect to your database using the MongoDB client. Replace <code>&lt;password&gt;</code>, <code>&lt;dbname&gt;</code>, and other placeholders with your actual data.
-                    ```javascript
-                    const { MongoClient } = require(&#39;mongodb&#39;);</li>
+              <li>Ensure you have Node.js installed on your computer.</li>
+              <li>
+                Initialize a new Node.js project if you haven&#39;t already by
+                running <code>npm init</code> in your project directory.
+              </li>
+              <li>
+                Install the MongoDB Node.js driver by running
+                <code>npm install mongodb</code>.
+              </li>
             </ul>
-            <p>async function main() {
-                const uri = &quot;YOUR_CONNECTION_STRING_HERE&quot;;
-                const client = new MongoClient(uri);</p>
-            <p>  try {</p>
-            <pre><code><span class="hljs-keyword">await</span> client.connect();
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Connected to MongoDB Atlas"</span>);
-<span class="hljs-comment">// Place your database interactions here</span>
-</code></pre><p>  } catch (e) {</p>
-            <pre><code>console.error(e)<span class="hljs-comment">;</span>
-</code></pre><p>  } finally {</p>
-            <pre><code>await client.close()<span class="hljs-comment">;</span>
-</code></pre><p>  }
-                }</p>
-            <p>main().catch(console.error);
-                ```</p>
-        </li>
-        <li><p><strong>Run Your Project:</strong></p>
+          </li>
+          <li>
+            <p><strong>Using MongoDB in Your Project:</strong></p>
             <ul>
-                <li>Execute your script using Node.js by running <code>node db.js</code> in your terminal. This will connect your application to your MongoDB Atlas database.</li>
+              <li>
+                In your project, create a new file (e.g., <code>db.js</code>) to
+                handle the connection to your MongoDB Atlas cluster.
+              </li>
+              <li>
+                Use the connection string you copied from MongoDB Atlas to
+                connect to your database using the MongoDB client. Replace
+                <code>&lt;password&gt;</code>, <code>&lt;dbname&gt;</code>, and
+                other placeholders with your actual data.
+              </li>
+              <li>
+                <pre>
+                    <code>
+                      
+                  async function main(){
+                    /**
+                     * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
+                     * See https://docs.mongodb.com/ecosystem/drivers/node/ for more details
+                     */
+                    const uri = "mongodb+srv://<username>:<password>@<your-cluster-url>/test?retryWrites=true&w=majority";
+                  
+                  
+                    const client = new MongoClient(uri);
+                  
+                    try {
+                        // Connect to the MongoDB cluster
+                        await client.connect();
+                  
+                        // Make the appropriate DB calls
+                        await  listDatabases(client);
+                  
+                    } catch (e) {
+                        console.error(e);
+                    } finally {
+                        await client.close();
+                    }
+                  }
+                  
+                  main().catch(console.error);
+                    </code>
+                  </pre>
+              </li>
             </ul>
-        </li>
-    </ol>
-    <h3 id="step-3-using-mongodb-with-vs-code">Step 3: Using MongoDB with VS Code</h3>
-    <ul>
-        <li><p><strong>VS Code MongoDB Extension:</strong></p>
+          </li>
+          <li>
+            <p><strong>Run Your Project:</strong></p>
             <ul>
-                <li>VS Code offers extensions like &quot;MongoDB for VS Code&quot; that can help you interact with your MongoDB database directly from your editor. </li>
-                <li>Install it via the Extensions view (<code>Ctrl+Shift+X</code> or <code>Cmd+Shift+X</code> on macOS) by searching for &quot;MongoDB for VS Code&quot; and clicking install.</li>
-                <li>Once installed, you can connect to your MongoDB Atlas cluster by adding your connection string to the extension and interact with your databases directly from VS Code.</li>
+              <li>
+                Execute your script using Node.js by running
+                <code>node db.js</code> in your terminal. This will connect your
+                application to your MongoDB Atlas database.
+              </li>
             </ul>
-        </li>
-        <li><p><strong>Developing Your Application:</strong></p>
+          </li>
+        </ol>
+        <h3 id="step-3-using-mongodb-with-vs-code">
+          Step 3: Using MongoDB with VS Code
+        </h3>
+        <ul>
+          <li>
+            <p><strong>VS Code MongoDB Extension:</strong></p>
             <ul>
-                <li>Now, you can start building your application. Utilize the MongoDB client in your project files to interact with your database—perform operations like creating, reading, updating, and deleting data (CRUD operations).</li>
+              <li>
+                VS Code offers extensions like &quot;MongoDB for VS Code&quot;
+                that can help you interact with your MongoDB database directly
+                from your editor.
+              </li>
+              <li>
+                Install it via the Extensions view (<code>Ctrl+Shift+X</code> or
+                <code>Cmd+Shift+X</code> on macOS) by searching for
+                &quot;MongoDB for VS Code&quot; and clicking install.
+              </li>
+              <li>
+                Once installed, you can connect to your MongoDB Atlas cluster by
+                adding your connection string to the extension and interact with
+                your databases directly from VS Code.
+              </li>
             </ul>
-        </li>
-    </ul>
-    <p>This setup gives you a powerful development environment with MongoDB Atlas as your database service, allowing you to focus on building your application without worrying about database management.</p>
+          </li>
+          <li>
+            <p><strong>Developing Your Application:</strong></p>
+            <ul>
+              <li>
+                Now, you can start building your application. Utilize the
+                MongoDB client in your project files to interact with your
+                database—perform operations like creating, reading, updating,
+                and deleting data (CRUD operations).
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <p>
+          This setup gives you a powerful development environment with MongoDB
+          Atlas as your database service, allowing you to focus on building your
+          application without worrying about database management.
+        </p>
+      </section>
+      <!--  Section 4: Basic Git Operations in VS Code -->
+      <section id="about-mongoose">
+        <h2 class="idfk">About Mongoose</h2>
+        <h3>What is Mongoose?</h3>
+        <p>
+          Mongoose is an ODM (Object Data Modeling) library for MongoDB and
+          Node.js. It manages relationships between data, provides schema
+          validation, and is used to translate between objects in code and the
+          representation of those objects in MongoDB.
+        </p>
+        <h3>What is the purpose of Mongoose?</h3>
+        <p>
+          Mongoose provides a straight-forward, schema-based solution to model
+          your application data. It includes built-in type casting, validation,
+          query building, business logic hooks, and more, out of the box.
+        </p>
 
+        <h3>Why is Mongoose important?</h3>
+        <p>
+          Mongoose is important as it allows developers to enforce a schema for
+          MongoDB documents, providing the benefits of relational database
+          schemas, like ensuring data consistency and validation, while
+          maintaining the flexibility and scalability of MongoDB.
+        </p>
+        <h3>How does Mongoose integrate into the MERN Stack?</h3>
+        <p>
+          Mongoose is specifically designed to work within the Node.js
+          environment, making it a crucial component of the MERN stack for
+          handling database operations.
+        </p>
+      </section>
+      <!--  Section 5: Branching with VS Code -->
+      <section id="integrating-mongoose">
+        <h2 class="idfk">Integrating Mongoose into the MERN stack</h2>
+        <p>
+          Mongoose is specifically designed to work within the Node.js
+          environment, making it a crucial component of the MERN stack for
+          handling database operations.
+        </p>
+        <h3>Steps to integrate</h3>
+        <ol>
+          <li>
+            <b>Install Mongoose:</b> Add Mongoose to your Node.js project with
+            npm.
+          </li>
+          <li>
+            <b>Connecting to MongoDB:</b> Use Mongoose to connect to your
+            MongoDB database with a connection string.
+          </li>
+          <li>
+            <b>Defining Schemas and Models:</b> Set up schemas to model your
+            application data.
+          </li>
+        </ol>
 
-</section>
-<!--  Section 4: Basic Git Operations in VS Code -->
-<section id="about-mongoose">
-<h2 class="idfk">About Mongoose</h2>
-<h3>What is Mongoose?</h3>
-    <p>Mongoose is an ODM (Object Data Modeling) library for MongoDB and Node.js. It manages relationships between data, provides schema validation, and is used to translate between objects in code and the representation of those objects in MongoDB.
-    </p>
-    <h3>What is the purpose of Mongoose?</h3>
-    <p>Mongoose provides a straight-forward, schema-based solution to model your application data. It includes built-in type casting, validation, query building, business logic hooks, and more, out of the box.</p>
+        <h3>Dependencies</h3>
+        <ul>
+          <li>Node.js and npm</li>
+          <li>MongoDB</li>
+          <li>Mongoose package</li>
+        </ul>
 
-    <h3>Why is Mongoose important?</h3>
-    <p>Mongoose is important as it allows developers to enforce a schema for MongoDB documents, providing the benefits of relational database schemas, like ensuring data consistency and validation, while maintaining the flexibility and scalability of MongoDB.
-    </p>
-    <h3>How does Mongoose integrate into the MERN Stack?</h3>
-    <p>Mongoose is specifically designed to work within the Node.js environment, making it a crucial component of the MERN stack for handling database operations.</p>
+        <h3>Configuration considerations</h3>
+        <ul>
+          <li>
+            <b>Schema Definitions:</b> Define models according to your data
+            requirements and ensure they align with your application logic.
+          </li>
+          <li>
+            <b>Middleware:</b> Leverage Mongoose middleware for functions like
+            validation and pre-save actions.
+          </li>
+          <li>
+            <b>Error Handling:</b> Implement error handling for database
+            operations to manage failures gracefully.
+          </li>
+        </ul>
+      </section>
+      <!--  Section 6: Working with Remote Repositories -->
+      <section id="common-functionality">
+        <h2 class="idfk">Common Functionality</h2>
+        <h3>Purpose</h3>
+        <p>
+          To facilitate interaction with MongoDB through easy-to-use schemas,
+          validation, and CRUD operations.
+        </p>
+        <h3>Description</h3>
+        <p>
+          Mongoose simplifies the process of working with MongoDB databases by
+          providing a model-based interface, which allows for defining the
+          structure of the database documents, their default values, validation
+          rules, and more.
+        </p>
+        <h3>Example</h3>
+        <ul>
+          <li>Connecting to MongoDB with Mongoose:</li>
+          <li>Defining a Model:</li>
+          <li>Creating and Saving a Document:</li>
+        </ul>
+        This guide provides a foundational overview of using MongoDB and
+        Mongoose within the MERN stack, highlighting their roles, importance,
+        and how they integrate into modern web development workflows.
+        <br />
+        <code>
+          const kitty = new Cat({ name: 'Zildjian' });<br />
 
+          kitty.save().then(() => console.log('meow'));<br />
 
-</section>
-<!--  Section 5: Branching with VS Code -->
-<section id="integrating-mongoose">
-<h2 class="idfk">Integrating Mongoose into the MERN stack</h2>
-    <p>Mongoose is specifically designed to work within the Node.js environment, making it a crucial component of the MERN stack for handling database operations.</p>
-<h3>Steps to integrate</h3>
-<ol>
-    <li><b>Install Mongoose:</b> Add Mongoose to your Node.js project with npm.</li>
-    <li><b>Connecting to MongoDB:</b> Use Mongoose to connect to your MongoDB database with a connection string.</li>
-    <li><b>Defining Schemas and Models:</b> Set up schemas to model your application data.</li>
-</ol>
+          const Cat = mongoose.model('Cat', { name: String });<br />
 
-<h3>Dependencies</h3>
-    <ul>
-        <li>Node.js and npm</li>
-        <li>MongoDB</li>
-        <li>Mongoose package</li>
-    </ul>
-    
-    <h3>Configuration considerations</h3>
-    <ul>
-        <li><b>Schema Definitions:</b> Define models according to your data requirements and ensure they align with your application logic.</li>
-        <li><b>Middleware:</b> Leverage Mongoose middleware for functions like validation and pre-save actions.</li>
-        <li><b>Error Handling:</b> Implement error handling for database operations to manage failures gracefully.</li>
-    </ul>
-</section>
-<!--  Section 6: Working with Remote Repositories -->
-<section id="common-functionality">
-<h2 class="idfk">Common Functionality</h2>
-<h3>Purpose</h3>
-    <p>To facilitate interaction with MongoDB through easy-to-use schemas, validation, and CRUD operations.</p>
-    <h3>Description</h3>
-    <p>Mongoose simplifies the process of working with MongoDB databases by providing a model-based interface, which allows for defining the structure of the database documents, their default values, validation rules, and more.</p>
-    <h3>Example</h3>
-    <ul>
-        <li>Connecting to MongoDB with Mongoose:</li>
-        <li>Defining a Model:</li>
-        <li>Creating and Saving a Document:</li>
-    </ul>
-    This guide provides a foundational overview of using MongoDB and Mongoose within the MERN stack, highlighting their roles, importance, and how they integrate into modern web development workflows.
-<br>
-    <code>
-const kitty = new Cat({ name: 'Zildjian' });<br>
+          const mongoose = require('mongoose');<br />
 
-kitty.save().then(() => console.log('meow'));<br>
-
-const Cat = mongoose.model('Cat', { name: String });<br>
-
-const mongoose = require('mongoose');<br>
-
-mongoose.connect('mongodb://localhost/mydatabase', {useNewUrlParser: true, useUnifiedTopology: true});
-    </code>
-
-</section>
-</main>
-
-</body>
+          mongoose.connect('mongodb://localhost/mydatabase', {useNewUrlParser:
+          true, useUnifiedTopology: true});
+        </code>
+      </section>
+    </main>
+  </body>
 </html>
