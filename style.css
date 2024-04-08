@@ -55,7 +55,7 @@ header .headerIcon {
   }
 
   #tableOfContents{
-   display: block;
+    display: block;
   }
 
   #sideNavigation{
@@ -125,5 +125,5 @@ main ol > li > ul, main ul > li > ul {
 }
 
 .idfk{
-  color: red !important;
+  color: red;
 }
