@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+:root {
+  /*  custom properties follow the "--[name]: [value]" format. they're referenced in the code with "var(--[name])".
+  this makes it easy to reuse and change values without having to retype them.  */
+  --accent-color: #ef5048;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  display: grid;
+  gap: 1rem 3rem;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "header header" "toc toc" "nav main";
+}
+
+a {
+  color: black;
+}
+
+header {
+  grid-area: header;
+  text-align: center;
+  padding-top: 1rem;
+  border-bottom: 3px solid var(--accent-color);
+}
+header .headerIcon {
+  width: 50px;
+}
+#tableOfContents{
+  grid-area: toc;
+  text-align: center;
+  display: none;
+}
+
+#sideNavigation {
+  grid-area: nav;
+  font-size: 0.85rem;
+  height: 90vh;
+  position: sticky;
+  top: 0;
+  margin-left: 1em;
+}
+
+
+/* hides the side nav and displays the top nav for smaller screens */
+@media only screen and (max-width: 900px){
+  body{
+    grid-template-areas: "header header" "toc toc" "main main";
+  }
+
+  main{
+    padding: 1rem;
+  }
+
+  #tableOfContents{
+   display: block;
+  }
+
+  #sideNavigation{
+    display: none;
+  }
+
+}
+
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
+}
+nav ul li {
+  padding: 5px;
+  margin: 5px;
+}
+nav ul li a {
+  text-decoration: none;
+}
+nav ul li a:hover {
+  text-decoration: underline var(--accent-color);
+}
+
+main {
+  grid-area: main;
+}
+main h2 {
+  border-bottom: 3px solid #b2b2b2;
+}
+main ol > li > ul, main ul > li > ul {
+  list-style-type: none;
+}
+
+.warning {
+  width: max-content;
+  padding: 15px;
+  border-left: solid 5px red;
+  background: #eeeeee;
+  margin: 1rem;
+}
+
+.supportingInfo {
+  width: max-content;
+  padding: 15px;
+  border-left: solid 5px #5797f6;
+  background: #eeeeee;
+  margin: 1rem;
+}
+
+.supportingImage {
+  margin-left: 1em;
+  border: 1px solid #b2b2b2;
+  max-width: 90%;
+}
+
+code{
+  display: block;
+  padding-left: 2em;
+}
+
+
+.active-link{
+  border-bottom: 3px solid red;
+}
+
+.idfk{
+  color: red; !important
+}
