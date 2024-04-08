@@ -113,7 +113,7 @@ main ol > li > ul, main ul > li > ul {
   max-width: 90%;
 }
 
-.code{
+.codeblock{
   display: block;
   padding-left: 2em;
   background-color: #b2b2b2;
