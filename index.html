@@ -59,9 +59,11 @@
         <h3>What is MongoDB?</h3>
         <p>
           MongoDB is a NoSQL database that stores data in flexible, JSON-like
-          documents. It means fields can vary from document to document and data
+          documents known as BSON (Binary JSON). It means fields can vary from document to document and data
           structure can be changed over time.
         </p>
+
+        <img src="img/crud-annotated-document.bakedsvg.svg" alt="" class="supportingImage">
 
         <h3>What is MongoDB's purpose?</h3>
         <p>
@@ -189,6 +191,7 @@
           <li>
             <p><strong>Create a Cluster:</strong></p>
             <ul>
+              <img src="img/cluster.png" class="supportingImage">
               <li>
                 Inside your dashboard, click the &quot;Build a Cluster&quot;
                 button. You can start with a free tier cluster (m0) which is
@@ -204,13 +207,13 @@
             <p><strong>Configure Security Settings:</strong></p>
             <ul>
               <li>
-                Set up a database user: Navigate to the &quot;Database
+                <b>To set up a database user:</b> Navigate to the &quot;Database
                 Access&quot; menu under the &quot;Security&quot; section. Add a
                 new database user with read and write privileges. Remember the
                 username and password; you will need them later.
               </li>
               <li>
-                Configure your IP address: In the &quot;Network Access&quot;
+                <b>Configure your IP address:</b> In the &quot;Network Access&quot;
                 menu under the &quot;Security&quot; section, add your IP address
                 or allow access from anywhere (not recommended for production).
               </li>
